@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Exhaustivo de Patolli</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-panel: #2a2a2a;
+            --text-main: #f0f0f0;
+            --gold: #ffd700;
+            --danger: #ff4444;
+            --safe: #44ff44;
+            --wood: #8b5a2b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: var(--gold);
+            text-align: center;
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--gold);
+            margin-top: 40px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #e0e0e0;
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .danger {
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        .safe {
+            color: var(--safe);
+            font-weight: bold;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-panel);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #444;
+        }
+
+        th {
+            background-color: #333;
+            color: var(--gold);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--bg-dark);
+            background-color: var(--gold);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #ffed4a;
+        }
+
+        .note-box {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Volver al Juego</a>
+        
+        <h1>Manual Exhaustivo de Patolli</h1>
+
+        <p>El <strong>Patolli</strong> es uno. de los juegos más antiguos de Mesoamérica, jugado por diversas culturas como los Toltecas, Aztecas y Mayas. Era un juego de azar y estrategia, profundamente ligado a la religión, la astronomía y el calendario.</p>
+
+        <h2>Objetivo del Juego</h2>
+        <p>El objetivo principal es ser el primer jugador en lograr que todas tus fichas recorran el tablero completo y salgan de él. Dependiendo del modo de juego, el número de fichas y las reglas del recorrido varían.</p>
+
+        <h2>Elementos del Juego</h2>
+        <ul>
+            <li><strong>El Tablero:</strong> Tiene forma de cruz diagonal (aspa). Consiste en un camino continuo de casillas por donde las fichas se mueven.</li>
+            <li><strong>Las Fichas:</strong> Cada jugador tiene un conjunto de fichas de un color específico.</li>
+            <li><strong>Los Dados:</strong> Se utilizan elementos naturales (frijoles, cañas, palitos o tablitas) marcados de un lado y lisos del otro para determinar el avance.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Modo Clásico (Reglas Estándar)</h2>
+        <p>Este modo representa la forma más conocida y directa de jugar al Patolli.</p>
+
+        <h3>1. Fichas y Tablero</h3>
+        <ul>
+            <li>Cada jugador cuenta con <strong>6 fichas</strong>.</li>
+            <li>El tablero tiene un total de <strong>52 casillas</strong> de recorrido.</li>
+        </ul>
+
+        <h3>2. Los Dados y la Tirada</h3>
+        <p>Se utilizan <strong>5 frijoles</strong> marcados con un punto blanco en una de sus caras.</p>
+        <ul>
+            <li>Se tiran los 5 frijoles.</li>
+            <li>El valor de la tirada es igual al <strong>número de frijoles que caen con el punto hacia arriba</strong>.</li>
+            <li>Si todos caen con la cara lisa hacia arriba, la tirada vale <strong>0</strong> y el jugador pierde su turno.</li>
+        </ul>
+
+        <h3>3. Ingreso y Movimiento</h3>
+        <ul>
+            <li>Para ingresar una ficha al tablero, simplemente necesitas sacar un valor mayor a 0. La ficha entrará en la casilla correspondiente a tu tirada (ej. si sacas 3, entra en la casilla 3 de tu recorrido).</li>
+            <li>Las fichas avanzan en sentido horario alrededor de la cruz.</li>
+            <li>Puedes elegir qué ficha mover en cada turno, siempre y cuando el movimiento sea válido.</li>
+            <li>No puedes mover una ficha a una casilla que ya esté ocupada por otra de tus propias fichas.</li>
+        </ul>
+
+        <h3>4. Captura (Comer Fichas)</h3>
+        <p>Si el movimiento de tu ficha termina exactamente en una casilla ocupada por la ficha de un oponente, <span class="danger">capturas esa ficha</span>. La ficha del oponente es retirada del tablero y debe volver a empezar desde el inicio.</p>
+
+        <h3>5. Zonas Seguras</h3>
+        <p>Existen casillas especiales marcadas con un símbolo (generalmente triángulos o aspas). Estas son <span class="safe">Zonas Seguras</span>. Si una ficha se encuentra en una zona segura, <strong>no puede ser capturada</strong> por ningún oponente.</p>
+
+        <h3>6. Salida del Tablero</h3>
+        <p>Para que una ficha salga del tablero, debe completar el recorrido de 52 casillas. En el modo clásico, no es necesario sacar el número exacto para salir; cualquier tirada que lleve a la ficha más allá de la última casilla es suficiente para sacarla.</p>
+
+        <hr>
+
+        <h2>Modo Arqueológico (Reglas Totonacas Avanzadas)</h2>
+        <p>Este modo introduce reglas más complejas, estratégicas y místicas, basadas en hallazgos arqueológicos y descripciones históricas de variantes jugadas por los Totonacas y otras culturas.</p>
+
+        <h3>1. Fichas y Tablero</h3>
+        <ul>
+            <li>Cada jugador cuenta con <strong>3 fichas</strong>.</li>
+            <li>El tablero es más corto, con un total de <strong>40 casillas</strong> de recorrido.</li>
+        </ul>
+
+        <h3>2. Los Dados Especiales y el Cálculo de la Tirada</h3>
+        <p>Se utilizan <strong>4 dados</strong> (pueden ser tablitas, frijoles, cañas o palitos). Estos dados son especiales: tienen una cara lisa, y la otra cara está marcada con <strong>1, 2, 3 y 4 puntos</strong> respectivamente.</p>
+        
+        <p>El cálculo de la tirada es exhaustivo y depende de qué caras caigan hacia arriba:</p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resultado de los Dados</th>
+                        <th>Valor de la Tirada</th>
+                        <th>Explicación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Todas las caras lisas</td>
+                        <td><strong>0</strong></td>
+                        <td>Pierdes el turno.</td>
+                    </tr>
+                    <tr>
+                        <td>1 dado con puntos arriba, 3 lisos</td>
+                        <td><strong>Depende del dado</strong></td>
+                        <td>
+                            Si es el de 1 punto = <strong>1</strong><br>
+                            Si es el de 2 puntos = <strong class="highlight">10</strong><br>
+                            Si es el de 3 puntos = <strong class="highlight">15</strong><br>
+                            Si es el de 4 puntos = <strong class="highlight">20</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2 dados con puntos arriba, 2 lisos</td>
+                        <td><strong>2</strong></td>
+                        <td>No importa cuáles sean, valen 2.</td>
+                    </tr>
+                    <tr>
+                        <td>3 dados con puntos arriba, 1 liso</td>
+                        <td><strong>3</strong></td>
+                        <td>No importa cuáles sean, valen 3.</td>
+                    </tr>
+                    <tr>
+                        <td>Los 4 dados con puntos arriba</td>
+                        <td><strong>5</strong></td>
+                        <td>Se salta el 4, el valor máximo regular es 5.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3. Ingreso de Fichas (Nacer)</h3>
+        <p>El ingreso de fichas al tablero es mucho más estricto y estratégico que en el modo clásico:</p>
+        <ul>
+            <li><strong>Tiro requerido:</strong> Para meter una ficha al tablero, <strong>debes sacar un 1, 2 o 3</strong>.</li>
+            <li><strong>La Primera Ficha (Nace en la Medialuna):</strong> Si no tienes ninguna ficha en el tablero y sacas un 1, 2 o 3, tu primera ficha no entra al inicio, sino que <strong>nace directamente en la casilla 5 (la primera medialuna)</strong> de tu recorrido. Esto acelera el encuentro estratégico.</li>
+            <li><strong>Fichas Posteriores (Refuerzos):</strong> Para meter tu segunda o tercera ficha (sacando 1, 2 o 3), la ficha anterior <strong>debe haber superado ya la zona central del tablero (casilla 7)</strong>. A diferencia de la primera, estas fichas de refuerzo <strong>nacen en la casilla 1</strong>. No puedes saturar el inicio del tablero sin haber avanzado tu vanguardia.</li>
+        </ul>
+
+        <h3>4. Movimiento y Nacimiento de Fichas</h3>
+        <p>En el modo Arqueológico, el jugador tiene la libertad de decidir si avanza una ficha que ya está en el tablero o si hace nacer una nueva ficha (siempre que cumpla las condiciones de nacimiento: sacar 1, 2 o 3 y que la ficha anterior haya superado la zona central). Sin embargo, <strong>en el primer tiro de tu turno</strong>, si decides avanzar una ficha que ya está en el tablero, <strong>estás obligado a mover la ficha más adelantada</strong>. Si tienes tiros adicionales (por ser "Grande" o por caer en una casilla de Punta), esos tiros extra los puedes repartir y mover la ficha que prefieras.</p>
+
+        <h3>5. Ser "Grande" (Recompensa Divina)</h3>
+        <p>Los dioses premian el progreso. Te conviertes en un jugador <span class="highlight">"Grande"</span> cuando logras:</p>
+        <ul>
+            <li>Meter una ficha en la <strong>Zona Final</strong> (las últimas 13 casillas del recorrido).</li>
+            <li>O lograr sacar una ficha del tablero.</li>
+        </ul>
+        <div class="note-box">
+            <strong>Beneficio:</strong> Mientras seas "Grande", tendrás el privilegio de realizar <strong>3 tiros por turno</strong> en lugar de 1. Esto acelera enormemente tu juego, pero debes tener cuidado con las reglas de la Zona Final.
+        </div>
+
+        <h3>6. Los Panteones (Casillas Peligrosas) y Puntas (Tiro Extra)</h3>
+        <p>Las casillas ubicadas en los extremos de los brazos de la cruz tienen reglas especiales:</p>
+        <ul>
+            <li><strong>Puntas de la Estrella (Tiro Extra):</strong> Si tu ficha cae exactamente en una de las casillas de las puntas de la cruz, los dioses te favorecen y <strong>¡ganas un tiro extra!</strong></li>
+            <li><strong>Los Panteones:</strong> Estas mismas casillas en los extremos son lugares de fuerte energía espiritual. Si tu ficha se encuentra detenida en un Panteón y en tu turno sacas un tiro "gigante" (<span class="highlight">10, 15 o 20</span>), <strong>tu tiro se anula (vale 0)</strong>. Los espíritus te retienen por intentar avanzar demasiado rápido desde un lugar sagrado.</li>
+        </ul>
+
+        <h3>7. La Zona Final (El Cansancio)</h3>
+        <p>Las últimas 13 casillas antes de salir del tablero representan el tramo final del viaje. Aquí, tu ficha está "cansada".</p>
+        <ul>
+            <li>Si tu ficha está en esta zona y sacas un tiro "gigante" (<span class="highlight">10, 15 o 20</span>), el cansancio te impide aprovecharlo. <strong>El tiro gigante se reduce a un valor de 1</strong>. Solo podrás avanzar un pasito.</li>
+        </ul>
+
+        <h3>8. Regla del "Puerco" (Penalización de Salida)</h3>
+        <p>Salir del tablero en el modo Arqueológico requiere precisión absoluta.</p>
+        <ul>
+            <li>Para sacar una ficha, necesitas sacar el número <strong>EXACTO</strong> de casillas restantes.</li>
+            <li>Si sacas un número mayor al necesario para salir, te pasas de la salida.</li>
+            <li>Al pasarte, te conviertes en <span class="danger">"Puerco"</span>. Los dioses te castigan obligando a esa ficha a dar <strong>¡una vuelta completa extra!</strong> (se le suman 40 casillas a su recorrido).</li>
+        </ul>
+
+        <h3>9. El Reto de Macuilxóchitl (Opcional)</h3>
+        <p>Puedes activar la presencia del dios de las flores, los juegos y el azar, Macuilxóchitl, como una fuerza del destino que recorre el tablero.</p>
+        <ul>
+            <li><strong>Nacimiento:</strong> El dios despierta y entra al tablero en una medialuna cuando el primer jugador logra ingresar su primera ficha al juego.</li>
+            <li><strong>Movimiento:</strong> Macuilxóchitl siempre se mueve <strong>antes</strong> que el jugador en turno. Avanza el <strong>doble</strong> del valor de la tirada del jugador. Su recorrido es infinito y cíclico.</li>
+            <li><strong>Captura Divina:</strong> Si el dios aterriza en la misma casilla que la ficha de cualquier jugador, la devora. La ficha del jugador muere y debe volver a nacer desde fuera del tablero.</li>
+            <li><strong>Debilidad:</strong> Si Macuilxóchitl cae exactamente en una medialuna (los extremos de la cruz), se debilita. En su siguiente turno, solo podrá avanzar <strong>1 casilla</strong>, sin importar lo que saque el jugador.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Consejos de Estrategia</h2>
+        <ul>
+            <li><strong>Controla las Zonas Seguras:</strong> En ambos modos, descansar en una zona segura es vital para evitar ser capturado.</li>
+            <li><strong>Cuidado con el Puerco:</strong> En modo Arqueológico, cuando te acerques a la salida, reza para no sacar tiros altos si no los necesitas, o terminarás dando otra vuelta.</li>
+            <li><strong>Aprovecha ser "Grande":</strong> Llegar a las últimas 13 casillas rápido te da 3 tiros por turno. Usa esta ventaja para meter tus otras fichas al tablero rápidamente.</li>
+            <li><strong>Calcula los Panteones:</strong> Evita caer en los extremos de la cruz si sospechas que podrías sacar un 10, 15 o 20 en tu próximo turno.</li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 20px;">
+            <a href="index.html" class="back-btn">Jugar Ahora</a>
+        </div>
+    </div>
+</body>
+</html>
