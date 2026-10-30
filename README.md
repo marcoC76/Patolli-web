@@ -134,3 +134,88 @@ Puedes activar la presencia del dios de las flores, los juegos y el azar, Macuil
 - **Cuidado con el Puerco:** En modo Arqueológico, cuando te acerques a la salida, reza para no sacar tiros altos si no los necesitas, o terminarás dando otra vuelta.
 - **Aprovecha ser "Grande":** Llegar a las últimas 13 casillas rápido te da 3 tiros por turno. Usa esta ventaja para meter tus otras fichas al tablero rápidamente.
 - **Calcula los Panteones:** Evita caer en los extremos de la cruz si sospechas que podrías sacar un 10, 15 o 20 en tu próximo turno.
+
+---
+
+## Tecnologías Utilizadas
+
+El juego es una aplicación web **sin dependencias externas** (sin frameworks, librerías ni paso de compilación):
+
+| Tecnología | Uso |
+| :--- | :--- |
+| **HTML5** | Estructura de las pantallas (configuración, partida, modales de salida y victoria). |
+| **CSS3** | Estilos, variables CSS (`:root`), gradientes, animaciones (`@keyframes`), diseño responsivo con Flexbox y `backdrop-filter`. |
+| **JavaScript (Vanilla, ES6+)** | Toda la lógica del juego, la IA, el guardado y la interfaz. |
+| **Canvas 2D API** | Renderizado del tablero, fichas, flechas de movimiento, animaciones y a Macuilxóchitl. |
+| **Web Audio API** | Efectos de sonido generados con osciladores (sin archivos de audio). |
+| **localStorage** | Guardado y carga automática de la partida (clave `patolli_save`). |
+| **PWA** | `manifest.webmanifest`, Service Worker (`sw.js`) e ícono para instalar el juego en móvil y funcionar sin conexión. |
+
+## Datos Técnicos del Juego
+
+### Estructura del proyecto
+
+```
+├── index.html            # Juego completo (HTML + CSS + JS en un solo archivo)
+├── reglas.html           # Manual de reglas
+├── manifest.webmanifest  # Configuración de la PWA
+├── sw.js                 # Service Worker
+├── apple-touch-icon.png  # Ícono para iOS
+└── README.md
+```
+
+### Tablero
+
+- **Lienzo:** `canvas` de 1000 × 1000 px, escalado de forma responsiva.
+- **Casilla:** 60 px; cada brazo de la cruz mide 6 casillas de largo por 2 de ancho.
+- **Recorrido global:** 52 casillas generadas por código (4 brazos × 12 casillas + 4 casillas centrales).
+- **Casillas especiales:**
+  - 4 **Zonas Seguras** (las casillas del centro de la cruz).
+  - 8 **Puntas** (extremos de los brazos, dan tiro extra).
+  - 8 **Panteones** (solo activos en modo Arqueológico).
+- **Casillas de inicio:** índices globales 6, 19, 32 y 45 (una por jugador).
+- **Modo Arqueológico:** cada jugador omite el brazo opuesto a su inicio (12 casillas), por lo que su recorrido es de 40 casillas.
+
+### Configuración por modo
+
+| Parámetro | Clásico | Arqueológico | Solo Dados |
+| :--- | :--- | :--- | :--- |
+| Fichas por jugador | 6 | 3 | — |
+| Casillas de recorrido | 52 | 40 | — |
+| Dados | 5 frijoles | 4 dados (1, 2, 3 y 4 puntos) | 4 dados |
+| Tiros por turno | 1 | 1 (3 si es "Grande") | — |
+| Estilos de dados | Frijoles | Tablitas, frijoles, cañas o palitos | Tablitas, frijoles, cañas o palitos |
+| Reto de Macuilxóchitl | No | Opcional | No |
+
+El modo **Solo Dados** no muestra tablero: sirve para jugar con un tablero físico y solo calcula la tirada.
+
+### Jugadores e IA
+
+- De 1 a 4 jugadores, o simulación de 4 IAs.
+- Colores y elementos: Rojo/Fuego, Azul/Agua, Verde/Tierra y Naranja/Sol.
+- En partidas de 2 jugadores se usan posiciones opuestas del tablero (Rojo vs Azul).
+- **IA fácil:** prioriza capturar, luego ingresar fichas, y si no, elige al azar.
+- **IA difícil:** prioriza capturar, luego sacar una ficha del tablero, luego mover la ficha más adelantada.
+
+### Estados del juego
+
+El flujo se controla con una máquina de estados simple: `ROLLING` → `ROLLING_ANIMATION` → `MOVING` → `ANIMATING_MOVE` → `WAITING` → (siguiente turno) → `END`. Los estados `DICE_ONLY_READY` y `ANIMATING_MACUILXOCHITL` cubren el modo Solo Dados y el movimiento del dios.
+
+### Persistencia
+
+- La partida se guarda automáticamente en cada tirada y movimiento (jugadores, fichas, turno, estado de Macuilxóchitl, estadísticas y registro de jugadas).
+- Al abandonar una partida se guarda y se puede retomar con el botón **Cargar Partida**.
+- El guardado se elimina al terminar la partida. El modo Solo Dados no se guarda.
+
+### Compatibilidad
+
+Funciona en navegadores modernos de escritorio y móvil (Chrome, Edge, Firefox, Safari). Al ser una PWA, se puede instalar en la pantalla de inicio.
+
+## Cómo Ejecutarlo
+
+No requiere instalación. Abre `index.html` en un navegador, o sírvelo con cualquier servidor estático para habilitar el Service Worker y la instalación como PWA:
+
+```bash
+python -m http.server 8000
+# luego abre http://localhost:8000
+```
